@@ -24,6 +24,15 @@ Everytime when we generate trajectory, we get the current position of the car fr
 Then we setup three target points: 30, 60 and 90 meters ahead of the car. Then using spline library to generate the trajectory.
 The coordinates are transformed to local car coordinates.
 
+For lane changing logic: 
+First of all, get the current speed and position of the car, as well as all the others from sensor fusion data.
+The basic logic is to check if there's any car ahead, if there's a car, then there are three options: <br/>
+1. change to the left lane if there's no car, if not
+2. change to the right lane if there's no car, if not
+3. stay on the current lane and decelerate the speed.
+
+if there's no car, try accelerating based on some threshold I set in the code.
+
 ## Basic Build Instructions
 
 1. Clone this repo.
